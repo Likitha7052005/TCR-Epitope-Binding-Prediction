@@ -1,0 +1,73 @@
+🧬 TCR–Epitope Binding Prediction Using Machine Learning (CatBoost + TF-IDF k-mers)
+This project aims to predict whether a T-cell receptor (TCR) will bind to a given epitope (antigen peptide) using classical machine learning methods.
+Unlike deep learning models that require huge GPUs and millions of samples, this approach uses:
+
+✔ TF-IDF based k-mer feature engineering
+✔ CatBoost classifier optimized for sparse biological data
+✔ Hard negative sampling to create realistic non-binding pairs
+
+This pipeline achieves 92–95% accuracy and AUC ~0.98, outperforming XGBoost, LightGBM, and BiLSTM for this dataset.
+
+📌 📁 Dataset Information
+
+The dataset used is McPAS-TCR, a publicly available immunology dataset.
+
+Dataset After Preprocessing
+
+Total positive pairs: ~4,261
+
+Columns used:
+
+CDR3β sequence (TCR)
+
+Epitope sequence
+
+All rows represent real binding pairs
+
+Since the dataset contains only binding pairs, we generate hard negatives to train the model.
+
+Final Dataset After Negative Sampling
+
+Total samples: ~10,540
+
+Positives: 4,261
+
+Negatives (generated): ~6,279
+
+Balanced dataset suitable for ML training
+
+📌 🚀 Project Workflow
+1️⃣ Load Positive Binding Data
+
+From McPAS-TCR:
+
+Extract TCR (CDR3β) and epitope sequences
+
+Remove duplicates & very short sequences
+
+2️⃣ Hard Negative Sampling
+
+We generate realistic non-binding pairs by:
+
+Picking TCRs from local clusters (same first 3 amino acids)
+
+Pairing them with random wrong epitopes
+
+Ensuring new pairs are not present in positive data
+
+This creates challenging negative examples → improves accuracy.
+
+3️⃣ Feature Engineering Using TF-IDF k-mers
+
+Each TCR and epitope is split into 1-mer, 2-mer, 3-mer fragments.
+
+Example:
+TCR "CASSLG" →
+
+1-mers: C A S S L G
+
+2-mers: CA AS SS SL LG
+
+3-mers: CAS ASS SSL SLG
+
+TF-IDF converts them into large sparse vectors that represent motif importance.
