@@ -1,4 +1,4 @@
-🧬 **TCR–Epitope Binding Prediction Using Machine Learning (CatBoost \+ TF-IDF k-mers)**
+# **🧬 TCR–Epitope Binding Prediction Using Machine Learning (CatBoost \+ TF-IDF k-mers)**
 
 This project aims to predict whether a T-cell receptor (TCR) will bind to a given epitope (antigen peptide) using classical machine learning methods.  
  Unlike deep learning models that require huge GPUs and millions of samples, this approach uses:
