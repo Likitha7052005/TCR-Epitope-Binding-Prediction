@@ -9,7 +9,7 @@ This project aims to predict whether a T-cell receptor (TCR) will bind to a give
 
 This pipeline achieves 92–95% accuracy and AUC \~0.98, outperforming XGBoost, LightGBM, and BiLSTM for this dataset.
 
-# *📌 📁 Dataset Information
+# 📌 📁 Dataset Information
 
 The dataset used is McPAS-TCR, a publicly available immunology dataset.
 
@@ -39,7 +39,7 @@ From McPAS-TCR:
 * Extract TCR (CDR3β) and epitope sequences  
 * Remove duplicates & very short sequences
 
-### **2️⃣ Hard Negative Sampling
+### 2️⃣ Hard Negative Sampling
 
 We generate realistic non-binding pairs by:
 
@@ -49,7 +49,7 @@ We generate realistic non-binding pairs by:
 
 This creates challenging negative examples → improves accuracy.
 
-### **3️⃣ Feature Engineering Using TF-IDF k-mers
+### 3️⃣ Feature Engineering Using TF-IDF k-mers
 
 Each TCR and epitope is split into 1-mer, 2-mer, 3-mer fragments.
 
