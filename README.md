@@ -9,7 +9,7 @@ This project aims to predict whether a T-cell receptor (TCR) will bind to a give
 
 This pipeline achieves 92–95% accuracy and AUC \~0.98, outperforming XGBoost, LightGBM, and BiLSTM for this dataset.
 
-# *📌 **📁 Dataset Information
+# *📌 📁 Dataset Information
 
 The dataset used is McPAS-TCR, a publicly available immunology dataset.
 
@@ -30,7 +30,7 @@ Since the dataset contains *only binding pairs*, we generate hard negatives to t
 * Negatives (generated): \~6,279  
 * Balanced dataset suitable for ML training
 
-# *📌 🚀 Project Workflow
+# 📌 🚀 Project Workflow
 
 ### **1️⃣ Load Positive Binding Data**
 
@@ -62,13 +62,13 @@ Example:
 
 TF-IDF converts them into large sparse vectors that represent motif importance.
 
-### **4️⃣ Train/Test Split
+### 4️⃣ Train/Test Split
 
 * 80% Training  
 * 20% Testing  
 * Stratified to preserve class ratio
 
-### **5️⃣ Model Training (CatBoost Classifier)
+### 5️⃣ Model Training (CatBoost Classifier)
 
 CatBoost is selected because it handles:
 
@@ -92,7 +92,7 @@ Hyperparameters tuned using GridSearchCV:
 | Precision/Recall | Important to avoid false positives/negatives |
 | Confusion Matrix | Visual representation of model performance |
 
-# *📌 🔬 Key Results
+# 📌 🔬 Key Results
 
 | Model | Accuracy | AUC |
 | :---- | :---- | :---- |
@@ -108,7 +108,7 @@ CatBoost clearly performs best because:
 * Works well on medium-sized datasets  
 * datasets
 
-# *📌 🧪 Biological Insight (Motif Analysis)
+# 📌 🧪 Biological Insight (Motif Analysis)
 
 After training, CatBoost can identify **important k-mers (motifs)** that contribute to binding.
 
@@ -120,7 +120,7 @@ Motifs with high importance:
 
 This adds **interpretability** and biomedical value.
 
-# *📌 🔥 Technologies Used
+# 📌 🔥 Technologies Used
 
 * Python  
 * Pandas, NumPy  
@@ -129,7 +129,7 @@ This adds **interpretability** and biomedical value.
 * Matplotlib/Seaborn  
 * SciPy (sparse matrices)
 
-# *📌 🌱 Future Scope
+# 📌 🌱 Future Scope
 
 * Use **transformer-based embeddings** for deeper biological understanding  
 * Apply **reciprocal attention** to model exact TCR–epitope interactions  
@@ -137,7 +137,7 @@ This adds **interpretability** and biomedical value.
 * Build a web interface for doctors/researchers  
 * Train on larger datasets like VDJdb or ImmuneCODE
 
-# *📌 📝 Conclusion
+# 📌 📝 Conclusion
 
 This project successfully demonstrates that **traditional ML models**—when paired with strong feature engineering (k-mers \+ TF-IDF)—can outperform complex deep learning architectures on medium-sized immunological datasets.
 
